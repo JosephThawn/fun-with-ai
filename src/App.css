@@ -13,3 +13,43 @@ main {
   padding: 20px;
   margin-bottom: 10px;
 }
+
+
+
+@media screen and (max-width: 600px) {
+
+ 
+  main {
+    width: 380px;
+    padding: auto;
+    margin: auto
+  }
+ 
+ }textarea {
+  height: 200px;
+}
+
+main {
+  width: 700px;
+  padding: auto;
+  margin: auto;
+}
+.response-bg {
+  background: #ecf0f1;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+ 
+  main {
+    width: 380px;
+    padding: auto;
+    margin: auto
+  }
+ 
+ }

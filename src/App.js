@@ -23,12 +23,15 @@ function App() {
     "ada",
   ];
 
+  //get the data from localstorage
   useEffect(() => {
-    const data = localStorage.getItem("responses");
-    if (data) {
-      setResponses(JSON.parse(data));
+    const getData = localStorage.getItem("responses");
+    if (getData) {
+      setResponses(JSON.parse(getData));
     }
+    console.log("uuseEffect result", getData);
   }, []);
+
   const handleSubmit = (event) => {
     getResponse();
     event.preventDefault();
@@ -54,8 +57,13 @@ function App() {
           frequency_penalty: 0,
           presence_penalty: 0,
         });
+        console.log("Resposne message", response);
+
         const { choices } = response.data;
+        console.log("choices", choices);
+
         if (choices && choices.length > 0) {
+          console.log("Choices", choices);
           const answer = choices[0]["text"];
           const regex = new RegExp(userInput.toLowerCase(), "g");
           if (answer.toLowerCase().match(regex)) {
@@ -63,9 +71,10 @@ function App() {
               question: userInput,
               answer: choices[0]["text"],
               engine: aiEngine,
-              dateTime: Date.now(),
+              dateTime: Date(),
             };
             const newResponses = [...responses, newResponse];
+            console.log("new responses", newResponses);
             setResponses(newResponses);
             localStorage.setItem("responses", JSON.stringify(newResponses));
           } else {
@@ -89,6 +98,7 @@ function App() {
   const clearResponses = () => {
     if (window.confirm("Are you sure?")) {
       setResponses([]);
+      console.log(localStorage());
       localStorage.clear();
     }
   };

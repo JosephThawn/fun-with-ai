@@ -1,24 +1,29 @@
-// import React, { Component } from "react";
-import "../App.css";
+import React from "react";
 
-export default function ResponseCard({ responses }) {
-  responses = responses.sort((prev, next) => next.dateTime - prev.dateTime);
+function ResponseCard({ responses }) {
+  //descedubg order b-a
+  const results = responses.sort((a, b) => a.dateTime - b.dateTime);
+  console.log("responsecard", results);
   return (
     <section>
-      {responses.map((response, index) => {
+      {results.map((result, index) => {
         return (
           <div className="response-bg" key={index}>
             <div className="col row m-0 p-0">
               <b className="col-3">Prompt:</b>
-              <p className="col-9">{response.question}</p>
+              <p className="col-9">{result.question}</p>
             </div>
             <div className="col row m-0 p-0">
               <b className="col-3">Engine:</b>
-              <p className="col-9">{response.engine}</p>
+              <p className="col-9">{result.engine}</p>
             </div>
             <div className="col row m-0 p-0">
-              <b className="col-3">Response:</b>
-              <p className="col-9">{response.answer}</p>
+              <b className="col-3">Result:</b>
+              <p className="col-9">{result.answer}</p>
+            </div>
+            <div className="col row m-0 p-0">
+              <b className="col-3">Date:</b>
+              <p className="col-9">{result.dateTime}</p>
             </div>
           </div>
         );
@@ -26,3 +31,5 @@ export default function ResponseCard({ responses }) {
     </section>
   );
 }
+
+export default ResponseCard;
