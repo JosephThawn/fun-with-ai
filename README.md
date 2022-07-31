@@ -7,18 +7,18 @@
 
 
 
-<div align="center">Welcome to Netflix-React </div>
+<div align="center">Welcome to Fun With AI </div>
 <br/>
 <div align="center">
 <kbd>
-<img src="./neflix.png">
+<img src="./fun.png">
 </kbd>
 </div>
 
 
 
 ## Summary
-Buiding a Algorithm search website using Openai APi
+Buiding a Algorithm search website using Openai API
 
 ## Technologies
 
